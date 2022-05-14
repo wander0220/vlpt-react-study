@@ -9,7 +9,7 @@ function App() {
     <>
       <Wrapper>
         <Hello/>
-        <Hello2 color="black" name="뫄뫄" />
+        <Hello2 color="black" name="뫄뫄" isSpecial/>
         <Hello2 color="red" />
         <div className='gray-box'></div>
       </Wrapper>

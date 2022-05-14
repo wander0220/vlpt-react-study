@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Hello2({color, name}){
+function Hello2({color, name,isSpecial}){
     
     return (
         <>
@@ -8,7 +8,10 @@ function Hello2({color, name}){
                 color: color,
                 width: '90px',
                 height: '90px'
-            }}>{name} 안녕하세요</div>
+            }}>
+                {/** porps에 이름만 있고 값 생략하면 true */}
+                {isSpecial && <b>*</b>}
+                {name} 안녕하세요</div>
         </>
     )
 }

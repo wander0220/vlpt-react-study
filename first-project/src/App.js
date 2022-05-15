@@ -4,15 +4,12 @@ import Wrapper from './Wrapper';
 import Hello from './Hello';
 import Hello2 from './Hello2';
 
+import Counter from './Counter';
+
 function App() {
   return (
     <>
-      <Wrapper>
-        <Hello/>
-        <Hello2 color="black" name="뫄뫄" isSpecial/>
-        <Hello2 color="red" />
-        <div className='gray-box'></div>
-      </Wrapper>
+      <Counter />
     </>
   );
 }

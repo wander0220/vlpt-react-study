@@ -1,3 +1,5 @@
+import React, {useRef} from 'react';
+
 // import logo from './logo.svg';
 import './App.css';
 // import Wrapper from './Wrapper';
@@ -11,9 +13,32 @@ import './App.css';
 import UserList from './UserList';
 
 function App() {
+  const users =[
+    {
+        id: 1,
+        username: 'kim',
+        email: 'ksh@temp.co.kr'
+    },
+    {
+        id: 2,
+        username: 'su',
+        email: 'su@example.com'
+    },
+    {
+        id: 3,
+        username: 'hyeon',
+        email: 'hyeon@email.com'
+    }
+  ];
+
+  const nextId = useRef(4);
+  const onCreate = () =>{
+    nextId.current += 1;
+  }
+
   return (
     <>
-      <UserList />
+      <UserList users = {users}/>
     </>
   );
 }

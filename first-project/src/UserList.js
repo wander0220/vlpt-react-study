@@ -1,25 +1,7 @@
 import React from "react";
 
-function UserList() {
-    const users =[
-        {
-            id: 1,
-            username: 'kim',
-            email: 'ksh@temp.co.kr'
-        },
-        {
-            id: 2,
-            username: 'su',
-            email: 'su@example.com'
-        },
-        {
-            id: 3,
-            username: 'hyeon',
-            email: 'hyeon@email.com'
-        }
-    ];
-
-
+function UserList({users}) {
+    
     return ( 
         <>
         {

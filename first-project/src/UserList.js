@@ -1,6 +1,6 @@
 import React from "react";
 
-function UserList({users}) {
+function UserList({users,onRemove}) {
     
     return ( 
         <>
@@ -9,6 +9,7 @@ function UserList({users}) {
                 <div key={user.id}>
                     <b>{user.username}</b>
                     <span>{user.email}</span>
+                    <button onClick={() =>onRemove(user.id)}>삭제</button>
                 </div>
             ))
         }

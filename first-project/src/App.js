@@ -6,8 +6,10 @@ import CreateUser from './CreateUser';
 
 function App() {
   const [inputs, setInputs] = useState({
+    id: 0,
     username:'',
     email: '',
+    active: false,
   })
   const {username, email} = inputs;
   const onChange = e =>{
@@ -25,19 +27,29 @@ function App() {
       id: nextId.current,
       username : username,
       email: email,
+      active: false,
     }
     // setUsers([...users, user]);
     setUsers(users.concat(user));
     
     setInputs({
+      id: 0,
       username:'',
-      email: ''
+      email: '',
+      active: false,
     })
     nextId.current += 1;
   }
 
   const onRemove = (id) =>{
     setUsers(users.filter(user => user.id !== id));
+  };
+
+  const onToggle = (id) =>{
+    setUsers(
+      users.map(user =>
+        user.id === id ? {...user, active: !user.active} : user)
+    );
   };
 
   return (
@@ -47,7 +59,7 @@ function App() {
         email={email} 
         onChange={onChange} 
         onCreate={onCreate}/>
-      <UserList users = {users} onRemove = {onRemove}/>
+      <UserList users = {users} onRemove = {onRemove} onToggle={onToggle}/>
     </>
   );
 }

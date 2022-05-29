@@ -35,7 +35,7 @@ function App() {
       active: false,
     }
     // setUsers([...users, user]);
-    setUsers(users.concat(user));
+    setUsers(users => users.concat(user));
     
     setInputs({
       id: 0,

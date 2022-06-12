@@ -1,19 +1,45 @@
-import React, {useState} from 'react';
+import React, {Component, useReducer, useState} from 'react';
 
-function Counter() {
-    let [count, setCount] = useState(0);
+function reducer(state, action) {
+ switch (action.type) {
+     case 'INCREMENT':
+         return state + 1; 
+    case 'DECREMENT':
+        return state  - 1;
+     default:
+        return state;
+ }   
+};
 
-    const onClickHandle = (value) => {
-        setCount(preNum => preNum + value)
+class Counter extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            counter: 0
+        };
     }
 
-    return(
-        <>
-            <h1>{count}</h1>
-            <button onClick={e=>{ onClickHandle(1)}}>+1</button>
-            <button onClick={e=>{ onClickHandle(-1)}}>-1</button>
-        </>
-    )
+    handleIncrease = () => {
+        this.setState({
+            counter:  this.state.counter + 1
+        });
+    }
+    handleDecrease = () => {
+        this.setState({
+            counter:  this.state.counter - 1
+        });
+    }
+
+    render(){
+        return(
+            <div>
+                <h1>{this.state.counter}</h1>
+                <button onClick={this.handleIncrease}>+1</button>
+                <button onClick={this.handleDecrease}>-1</button>
+            </div>
+        )
+    }
+
 };
 
 export default Counter;

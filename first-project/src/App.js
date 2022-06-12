@@ -3,6 +3,7 @@ import UserList from './UserList';
 import CreateUser from './CreateUser';
 import useInputs from './useInputs';
 import produce from 'immer';
+import Counter from './Counter';
 
 function countActiveUsers(users) {
   console.log('활성 사용자 수를 세는중...');
@@ -74,11 +75,12 @@ function App() {
   const count = useMemo(() => countActiveUsers(users), [users]);
   return (
     <>
-      <UserDispatch.Provider value ={dispatch}>
+    <Counter></Counter>
+      {/* <UserDispatch.Provider value ={dispatch}>
         <CreateUser/>
         <UserList users={users} />
         <div>활성사용자 수 : {count}</div>
-      </UserDispatch.Provider>
+      </UserDispatch.Provider> */}
     </>
   );
 }

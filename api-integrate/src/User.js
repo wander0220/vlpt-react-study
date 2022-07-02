@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useReducer } from 'react';
 import axios from 'axios';
-import useAsync from './useAsync';
+// import useAsync from './useAsync';
+import { useAsync } from 'react-async';
 
 const getUsers = async (id) => {
     const response = await axios.get(
@@ -11,10 +12,13 @@ const getUsers = async (id) => {
 };
 
 function User({id}) {
-    const [state] = useAsync(() => getUsers(id), [id]);
+    const {data: user, error, isLoading} = useAsync({
+        promiseFn: getUsers,
+        id,
+        watch: id
+    })
 
-    const {loading, data: user, error} = state;
-    if (loading) return <div>로딩중..</div>;
+    if (isLoading) return <div>로딩중..</div>;
     if (error) return <div>에러가 발생했습니다</div>;
     if (!user) return null;
     return (
